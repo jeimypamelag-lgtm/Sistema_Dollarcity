@@ -30,7 +30,8 @@ namespace Sistema_Dollarcity
                 return;
             }
 
-            string conexion = "Server=.;Database=BD_Dollarcity;Trusted_Connection=True;"; //"Server=PAMELA_PORTILLO;Database=BD_Dollarcity;Integrated Security=true";
+            string conexion = //"Server=.;Database=BD_Dollarcity;Trusted_Connection=True;"; //"Server=PAMELA_PORTILLO;Database=BD_Dollarcity;Integrated Security=true";
+                @"Server=DESKTOP-CC30LNJ\SQLEXPRESS;Database=BD_Dollarcity;Trusted_Connection=True;"; // - dary (a mi con esta cadena me agarra la base xd)
 
             using (SqlConnection conn = new SqlConnection(conexion))
             {
@@ -66,7 +67,7 @@ namespace Sistema_Dollarcity
 
                         MessageBox.Show("Bienvenido " + nombre);
 
-                        Inicio principal = new Inicio();
+                        Inicio principal = new Inicio(rol);
                         principal.Show();
 
                         this.Hide();

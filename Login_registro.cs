@@ -20,7 +20,8 @@ namespace Sistema_Dollarcity
 
         private void btn_registrarse2_Click(object sender, EventArgs e)
         {
-            string conexion = "Server=.;Database=BD_Dollarcity;Trusted_Connection=True;";
+            string conexion = //"Server=.;Database=BD_Dollarcity;Trusted_Connection=True;";
+                @"Server=DESKTOP-CC30LNJ\SQLEXPRESS;Database=BD_Dollarcity;Trusted_Connection=True;"; // - dary (a mi con esta cadena me agarra la base xd)
 
             using (SqlConnection conn = new SqlConnection(conexion))
             {
