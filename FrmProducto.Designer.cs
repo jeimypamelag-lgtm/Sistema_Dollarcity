@@ -69,7 +69,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(160, 86);
+            this.txtPrecio.Location = new System.Drawing.Point(166, 115);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe Print", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(50, 87);
+            this.label2.Location = new System.Drawing.Point(56, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 23);
             this.label2.TabIndex = 2;
@@ -86,7 +86,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(160, 126);
+            this.txtDescripcion.Location = new System.Drawing.Point(166, 155);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(154, 20);
             this.txtDescripcion.TabIndex = 5;
@@ -95,7 +95,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe Print", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(50, 130);
+            this.label3.Location = new System.Drawing.Point(56, 159);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 23);
             this.label3.TabIndex = 4;
@@ -105,7 +105,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe Print", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(50, 173);
+            this.label4.Location = new System.Drawing.Point(56, 202);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 23);
             this.label4.TabIndex = 6;
@@ -121,7 +121,7 @@
             "Cuidado Personal",
             "Manualidades",
             "Juguetes"});
-            this.cmbCategoria.Location = new System.Drawing.Point(160, 173);
+            this.cmbCategoria.Location = new System.Drawing.Point(166, 202);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(121, 21);
             this.cmbCategoria.TabIndex = 7;
@@ -131,7 +131,7 @@
             this.chkStock.AutoSize = true;
             this.chkStock.Font = new System.Drawing.Font("Segoe Print", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkStock.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.chkStock.Location = new System.Drawing.Point(67, 215);
+            this.chkStock.Location = new System.Drawing.Point(389, 151);
             this.chkStock.Name = "chkStock";
             this.chkStock.Size = new System.Drawing.Size(85, 27);
             this.chkStock.TabIndex = 8;
@@ -140,7 +140,7 @@
             // 
             // picProducto
             // 
-            this.picProducto.Location = new System.Drawing.Point(67, 260);
+            this.picProducto.Location = new System.Drawing.Point(101, 280);
             this.picProducto.Name = "picProducto";
             this.picProducto.Size = new System.Drawing.Size(150, 150);
             this.picProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -153,7 +153,7 @@
             this.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImagen.Font = new System.Drawing.Font("Segoe Print", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImagen.ForeColor = System.Drawing.Color.ForestGreen;
-            this.btnImagen.Location = new System.Drawing.Point(271, 269);
+            this.btnImagen.Location = new System.Drawing.Point(305, 289);
             this.btnImagen.Name = "btnImagen";
             this.btnImagen.Size = new System.Drawing.Size(142, 31);
             this.btnImagen.TabIndex = 10;
@@ -167,7 +167,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe Print", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.ForestGreen;
-            this.btnGuardar.Location = new System.Drawing.Point(271, 316);
+            this.btnGuardar.Location = new System.Drawing.Point(305, 336);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(142, 31);
             this.btnGuardar.TabIndex = 11;
@@ -181,7 +181,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe Print", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.ForestGreen;
-            this.btnCancelar.Location = new System.Drawing.Point(271, 364);
+            this.btnCancelar.Location = new System.Drawing.Point(305, 384);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(142, 31);
             this.btnCancelar.TabIndex = 12;

@@ -50,12 +50,13 @@
             this.lblCategoria.Size = new System.Drawing.Size(120, 34);
             this.lblCategoria.TabIndex = 0;
             this.lblCategoria.Text = "Categoria";
+            this.lblCategoria.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 135);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(683, 407);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(683, 411);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // btnAgregarP
@@ -64,7 +65,7 @@
             this.btnAgregarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarP.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarP.ForeColor = System.Drawing.Color.ForestGreen;
-            this.btnAgregarP.Location = new System.Drawing.Point(12, 561);
+            this.btnAgregarP.Location = new System.Drawing.Point(22, 552);
             this.btnAgregarP.Name = "btnAgregarP";
             this.btnAgregarP.Size = new System.Drawing.Size(136, 33);
             this.btnAgregarP.TabIndex = 0;
@@ -78,7 +79,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.button1.Location = new System.Drawing.Point(564, 561);
+            this.button1.Location = new System.Drawing.Point(555, 552);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 33);
             this.button1.TabIndex = 2;
