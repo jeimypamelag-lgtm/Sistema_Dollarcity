@@ -34,9 +34,8 @@
             this.btnAgregarP = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lbInicio = new System.Windows.Forms.Label();
             this.pictureLogo = new System.Windows.Forms.PictureBox();
+            this.btnCarrito = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             this.SuspendLayout();
@@ -90,8 +89,7 @@
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(87)))), ((int)(((byte)(45)))));
-            this.panelHeader.Controls.Add(this.label5);
-            this.panelHeader.Controls.Add(this.lbInicio);
+            this.panelHeader.Controls.Add(this.btnCarrito);
             this.panelHeader.Controls.Add(this.pictureLogo);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
@@ -99,30 +97,6 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(708, 73);
             this.panelHeader.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(557, 24);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 21);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Nuestro Equipo";
-            // 
-            // lbInicio
-            // 
-            this.lbInicio.AutoSize = true;
-            this.lbInicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInicio.ForeColor = System.Drawing.Color.White;
-            this.lbInicio.Location = new System.Drawing.Point(500, 24);
-            this.lbInicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbInicio.Name = "lbInicio";
-            this.lbInicio.Size = new System.Drawing.Size(53, 21);
-            this.lbInicio.TabIndex = 1;
-            this.lbInicio.Text = "Inicio";
             // 
             // pictureLogo
             // 
@@ -134,6 +108,18 @@
             this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureLogo.TabIndex = 0;
             this.pictureLogo.TabStop = false;
+            // 
+            // btnCarrito
+            // 
+            this.btnCarrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(87)))), ((int)(((byte)(45)))));
+            this.btnCarrito.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarrito.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCarrito.Location = new System.Drawing.Point(542, 24);
+            this.btnCarrito.Name = "btnCarrito";
+            this.btnCarrito.Size = new System.Drawing.Size(90, 35);
+            this.btnCarrito.TabIndex = 2;
+            this.btnCarrito.Text = "Ver carrito";
+            this.btnCarrito.UseVisualStyleBackColor = false;
             // 
             // Productos
             // 
@@ -150,7 +136,6 @@
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Productos_Load);
             this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,8 +149,7 @@
         private System.Windows.Forms.Button btnAgregarP;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelHeader;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lbInicio;
         private System.Windows.Forms.PictureBox pictureLogo;
+        private System.Windows.Forms.Button btnCarrito;
     }
 }
