@@ -136,6 +136,7 @@ namespace Sistema_Dollarcity
             btnCarrito.Top = 290;
             btnCarrito.Left = 10;
             btnCarrito.BackColor = Color.LightGreen;
+            btnCarrito.Font = new Font("Arial", 9, FontStyle.Bold);
             btnCarrito.Click += (s, e) =>
             {
                 Carrito.AgregarProducto(producto, 1);
