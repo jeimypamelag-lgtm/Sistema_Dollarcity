@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -406,6 +406,13 @@ namespace Sistema_Dollarcity
 
             ventana.Show();
             this.Close();
+        }
+
+        // Método para abrir el carrito de compras
+        private void btnCarrito_Click(object sender, EventArgs e)
+        {
+            FrmCarrito carritoForm = new FrmCarrito();
+            carritoForm.ShowDialog();
         }
     }
 }
