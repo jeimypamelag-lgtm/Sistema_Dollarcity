@@ -54,7 +54,14 @@ namespace Sistema_Dollarcity
 
             if (File.Exists(ruta))
             {
-                picProducto.Image = Image.FromFile(ruta);
+                using (FileStream fs = new FileStream(
+                    ruta,
+                    FileMode.Open,
+                    FileAccess.Read))
+                {
+                    picProducto.Image =
+                        Image.FromStream(fs);
+                }
             }
         }
 
@@ -88,55 +95,95 @@ namespace Sistema_Dollarcity
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (productoEditar == null)
+            try
             {
-                Producto nuevo = new Producto();
+                // VALIDACIONES
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                    string.IsNullOrWhiteSpace(txtPrecio.Text) ||
+                    string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
+                    string.IsNullOrWhiteSpace(cmbCategoria.Text))
+                {
+                    MessageBox.Show(
+                        "Complete todos los campos",
+                        "Advertencia",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
 
-                nuevo.Id = Datos.ListaProductos.Count + 1;
+                    return;
+                }
 
-                nuevo.Nombre = txtNombre.Text;
+                // VALIDAR PRECIO
+                decimal precio;
 
-                nuevo.Precio =
-                    decimal.Parse(txtPrecio.Text);
+                if (!decimal.TryParse(txtPrecio.Text, out precio))
+                {
+                    MessageBox.Show(
+                        "Ingrese un precio válido"
+                    );
 
-                nuevo.Descripcion =
-                    txtDescripcion.Text;
+                    return;
+                }
 
-                nuevo.Categoria =
-                    cmbCategoria.Text;
+                // VALIDAR IMAGEN
+                if (string.IsNullOrEmpty(nombreImagen))
+                {
+                    MessageBox.Show(
+                        "Seleccione una imagen"
+                    );
 
-                nuevo.Stock =
-                    chkStock.Checked;
+                    return;
+                }
 
-                nuevo.Imagen =
-                    nombreImagen;
+                // AGREGAR
+                if (productoEditar == null)
+                {
+                    Producto nuevo = new Producto();
 
-                Datos.ListaProductos.Add(nuevo);
+                    nuevo.Id = Datos.ListaProductos.Count + 1;
+
+                    nuevo.Nombre = txtNombre.Text;
+
+                    nuevo.Precio = precio;
+
+                    nuevo.Descripcion = txtDescripcion.Text;
+
+                    nuevo.Categoria = cmbCategoria.Text;
+
+                    nuevo.Stock = chkStock.Checked;
+
+                    nuevo.Imagen = nombreImagen;
+
+                    Datos.ListaProductos.Add(nuevo);
+                }
+                else
+                {
+                    // EDITAR
+                    productoEditar.Nombre = txtNombre.Text;
+
+                    productoEditar.Precio = precio;
+
+                    productoEditar.Descripcion = txtDescripcion.Text;
+
+                    productoEditar.Categoria = cmbCategoria.Text;
+
+                    productoEditar.Stock = chkStock.Checked;
+
+                    productoEditar.Imagen = nombreImagen;
+                }
+
+                MessageBox.Show(
+                    "Producto guardado correctamente"
+                );
+
+                this.Close();
             }
-            else
+            catch (Exception ex)
             {
-                productoEditar.Nombre =
-                    txtNombre.Text;
-
-                productoEditar.Precio =
-                    decimal.Parse(txtPrecio.Text);
-
-                productoEditar.Descripcion =
-                    txtDescripcion.Text;
-
-                productoEditar.Categoria =
-                    cmbCategoria.Text;
-
-                productoEditar.Stock =
-                    chkStock.Checked;
-
-                productoEditar.Imagen =
-                    nombreImagen;
+                MessageBox.Show(
+                    "Error: " + ex.Message
+                );
             }
-
-            MessageBox.Show("Producto guardado");
-
-            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

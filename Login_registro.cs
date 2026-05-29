@@ -75,7 +75,7 @@ namespace Sistema_Dollarcity
                     Login login = new Login();
                     login.Show();
 
-                    this.Hide();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -88,7 +88,7 @@ namespace Sistema_Dollarcity
         {
             Login frmMenu = new Login();
             frmMenu.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

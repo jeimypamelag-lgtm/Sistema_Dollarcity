@@ -45,7 +45,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Segoe Script", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(311, 85);
+            this.lblCategoria.Location = new System.Drawing.Point(282, 85);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(120, 34);
             this.lblCategoria.TabIndex = 0;
@@ -55,7 +55,7 @@
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 135);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(718, 229);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(683, 407);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // btnAgregarP
@@ -64,7 +64,7 @@
             this.btnAgregarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarP.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarP.ForeColor = System.Drawing.Color.ForestGreen;
-            this.btnAgregarP.Location = new System.Drawing.Point(12, 395);
+            this.btnAgregarP.Location = new System.Drawing.Point(12, 561);
             this.btnAgregarP.Name = "btnAgregarP";
             this.btnAgregarP.Size = new System.Drawing.Size(136, 33);
             this.btnAgregarP.TabIndex = 0;
@@ -78,7 +78,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.button1.Location = new System.Drawing.Point(599, 395);
+            this.button1.Location = new System.Drawing.Point(564, 561);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 33);
             this.button1.TabIndex = 2;
@@ -96,7 +96,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(2);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(743, 73);
+            this.panelHeader.Size = new System.Drawing.Size(708, 73);
             this.panelHeader.TabIndex = 14;
             // 
             // label5
@@ -104,7 +104,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(607, 28);
+            this.label5.Location = new System.Drawing.Point(557, 24);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 21);
@@ -116,7 +116,7 @@
             this.lbInicio.AutoSize = true;
             this.lbInicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbInicio.ForeColor = System.Drawing.Color.White;
-            this.lbInicio.Location = new System.Drawing.Point(550, 28);
+            this.lbInicio.Location = new System.Drawing.Point(500, 24);
             this.lbInicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbInicio.Name = "lbInicio";
             this.lbInicio.Size = new System.Drawing.Size(53, 21);
@@ -138,13 +138,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 450);
+            this.ClientSize = new System.Drawing.Size(708, 608);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAgregarP);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "Productos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Productos_Load);
             this.panelHeader.ResumeLayout(false);

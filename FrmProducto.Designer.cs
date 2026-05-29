@@ -44,8 +44,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.lbInicio = new System.Windows.Forms.Label();
+            this.pictureLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picProducto)).BeginInit();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
@@ -114,6 +114,13 @@
             // cmbCategoria
             // 
             this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Items.AddRange(new object[] {
+            "Jardineria",
+            "Cocina",
+            "Hogar",
+            "Cuidado Personal",
+            "Manualidades",
+            "Juguetes"});
             this.cmbCategoria.Location = new System.Drawing.Point(160, 173);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(121, 21);
@@ -136,6 +143,7 @@
             this.picProducto.Location = new System.Drawing.Point(67, 260);
             this.picProducto.Name = "picProducto";
             this.picProducto.Size = new System.Drawing.Size(150, 150);
+            this.picProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picProducto.TabIndex = 9;
             this.picProducto.TabStop = false;
             // 
@@ -206,17 +214,6 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Nuestro Equipo";
             // 
-            // pictureLogo
-            // 
-            this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
-            this.pictureLogo.Location = new System.Drawing.Point(22, 10);
-            this.pictureLogo.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureLogo.Name = "pictureLogo";
-            this.pictureLogo.Size = new System.Drawing.Size(210, 49);
-            this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLogo.TabIndex = 0;
-            this.pictureLogo.TabStop = false;
-            // 
             // lbInicio
             // 
             this.lbInicio.AutoSize = true;
@@ -228,6 +225,17 @@
             this.lbInicio.Size = new System.Drawing.Size(53, 21);
             this.lbInicio.TabIndex = 1;
             this.lbInicio.Text = "Inicio";
+            // 
+            // pictureLogo
+            // 
+            this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
+            this.pictureLogo.Location = new System.Drawing.Point(22, 10);
+            this.pictureLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureLogo.Name = "pictureLogo";
+            this.pictureLogo.Size = new System.Drawing.Size(210, 49);
+            this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureLogo.TabIndex = 0;
+            this.pictureLogo.TabStop = false;
             // 
             // FrmProducto
             // 
@@ -249,6 +257,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
             this.Name = "FrmProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmProducto";
             ((System.ComponentModel.ISupportInitialize)(this.picProducto)).EndInit();
             this.panelHeader.ResumeLayout(false);

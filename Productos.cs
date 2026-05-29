@@ -61,6 +61,7 @@ namespace Sistema_Dollarcity
             panel.Height = 380;
 
             panel.BorderStyle = BorderStyle.FixedSingle;
+            panel.BackColor = Color.White;
 
             PictureBox pic = new PictureBox();
 
@@ -80,7 +81,13 @@ namespace Sistema_Dollarcity
 
             if (File.Exists(ruta))
             {
-                pic.Image = Image.FromFile(ruta);
+                using (FileStream fs = new FileStream(
+                    ruta,
+                    FileMode.Open,
+                    FileAccess.Read))
+                {
+                    pic.Image = Image.FromStream(fs);
+                }
             }
             else
             {

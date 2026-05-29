@@ -77,7 +77,7 @@
             // btnIngresar
             // 
             this.btnIngresar.BackColor = System.Drawing.Color.Goldenrod;
-            this.btnIngresar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnIngresar.Location = new System.Drawing.Point(29, 100);
             this.btnIngresar.Name = "btnIngresar";
@@ -122,6 +122,7 @@
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.panel1);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

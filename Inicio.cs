@@ -350,6 +350,7 @@ namespace Sistema_Dollarcity
     );
 
             ventana.Show();
+            this.Close();
         }
 
         private void btnCocina_Click(object sender, EventArgs e)
@@ -360,6 +361,7 @@ namespace Sistema_Dollarcity
     );
 
             ventana.Show();
+            this.Close();
         }
 
         private void btnHogar_Click(object sender, EventArgs e)
@@ -370,6 +372,7 @@ namespace Sistema_Dollarcity
     );
 
             ventana.Show();
+            this.Close();
         }
 
         private void btnCuidadoPersonal_Click(object sender, EventArgs e)
@@ -380,6 +383,7 @@ namespace Sistema_Dollarcity
     );
 
             ventana.Show();
+            this.Close();
         }
 
         private void btnManualidades_Click(object sender, EventArgs e)
@@ -390,6 +394,7 @@ namespace Sistema_Dollarcity
     );
 
             ventana.Show();
+            this.Close();
         }
 
         private void btnJuguetes_Click(object sender, EventArgs e)
@@ -400,6 +405,7 @@ namespace Sistema_Dollarcity
     );
 
             ventana.Show();
+            this.Close();
         }
     }
 }
