@@ -137,10 +137,10 @@ namespace Sistema_Dollarcity
 
                 Panel panelItem = new Panel();
                 panelItem.Width = 620;
-                panelItem.Height = 90;
+                panelItem.Height = 110;
                 panelItem.BorderStyle = BorderStyle.FixedSingle;
                 
-                // CAMBIO: Color del panel según estado del stock
+                // Color del panel según estado del stock
                 if (producto != null && producto.CantidadStock == 0)
                 {
                     panelItem.BackColor = Color.FromArgb(255, 200, 200); // Rojo claro para agotado
@@ -187,12 +187,13 @@ namespace Sistema_Dollarcity
                 lblSubtotal.Font = new Font("Arial", 11, FontStyle.Bold);
                 lblSubtotal.ForeColor = Color.DarkGreen;
 
-                // NUEVA SECCIÓN: Label de estado de stock
+                // Label de estado de stock
                 Label lblEstadoStock = new Label();
                 lblEstadoStock.Top = 60;
                 lblEstadoStock.Left = 10;
-                lblEstadoStock.Width = 300;
+                lblEstadoStock.Width = 480;
                 lblEstadoStock.Font = new Font("Arial", 9, FontStyle.Regular);
+                lblEstadoStock.AutoSize = false;
 
                 if (producto != null)
                 {
@@ -217,7 +218,7 @@ namespace Sistema_Dollarcity
                 Button btnEliminar = new Button();
                 btnEliminar.Text = "❌ Eliminar";
                 btnEliminar.Width = 100;
-                btnEliminar.Top = 35;
+                btnEliminar.Top = 60;
                 btnEliminar.Left = 500;
                 btnEliminar.BackColor = Color.IndianRed;
                 btnEliminar.ForeColor = Color.White;
@@ -233,7 +234,7 @@ namespace Sistema_Dollarcity
                 panelItem.Controls.Add(lblPrecio);
                 panelItem.Controls.Add(lblCantidad);
                 panelItem.Controls.Add(lblSubtotal);
-                panelItem.Controls.Add(lblEstadoStock); // NUEVA LÍNEA
+                panelItem.Controls.Add(lblEstadoStock);
                 panelItem.Controls.Add(btnEliminar);
 
                 flowLayoutPanel1.Controls.Add(panelItem);
@@ -269,7 +270,7 @@ namespace Sistema_Dollarcity
                 return;
             }
 
-            // VALIDACIÓN: Verificar que hay stock disponible para todos los items
+            // Validación: Verificar que hay stock disponible para todos los items
             foreach (var item in Carrito.Items)
             {
                 Producto producto = Datos.ObtenerProductoPorId(item.Id);
@@ -297,7 +298,7 @@ namespace Sistema_Dollarcity
 
             if (resultado == DialogResult.Yes)
             {
-                // CAMBIO: Procesar compra y descontar stock
+                // Procesar compra y descontar stock
                 if (Carrito.ProcesarCompra())
                 {
                     MessageBox.Show(
@@ -324,7 +325,7 @@ namespace Sistema_Dollarcity
 
         /// <summary>
         /// Maneja el evento de click del botón Limpiar.
-        /// Vaciá el carrito con confirmación del usuario.
+        /// Vacía el carrito con confirmación del usuario.
         /// </summary>
         private void btnLimpiarCarrito_Click(object sender, EventArgs e)
         {
