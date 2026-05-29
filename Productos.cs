@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -132,10 +132,20 @@ namespace Sistema_Dollarcity
 
             Button btnCarrito = new Button();
 
-            btnCarrito.Text = "Agregar";
-
+            btnCarrito.Text = "🛒 Agregar";
             btnCarrito.Top = 290;
             btnCarrito.Left = 10;
+            btnCarrito.BackColor = Color.LightGreen;
+            btnCarrito.Click += (s, e) =>
+            {
+                Carrito.AgregarProducto(producto, 1);
+                MessageBox.Show(
+                    $"✓ {producto.Nombre} agregado al carrito",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            };
 
             panel.Controls.Add(pic);
             panel.Controls.Add(lblNombre);
