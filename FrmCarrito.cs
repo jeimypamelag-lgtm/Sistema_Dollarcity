@@ -10,6 +10,14 @@ using System.Windows.Forms;
 
 namespace Sistema_Dollarcity
 {
+    /// <summary>
+    /// Formulario que muestra el carrito de compras y permite:
+    /// - Ver items agregados
+    /// - Modificar cantidades
+    /// - Eliminar productos
+    /// - Validar stock disponible
+    /// - Realizar compra descontando stock
+    /// </summary>
     public partial class FrmCarrito : Form
     {
         public FrmCarrito()
@@ -101,6 +109,10 @@ namespace Sistema_Dollarcity
             pnlMain.Controls.Add(btnCerrar);
         }
 
+        /// <summary>
+        /// Actualiza la visualización del carrito con todos los items actuales.
+        /// Incluye validación de stock en tiempo real.
+        /// </summary>
         private void MostrarCarrito()
         {
             FlowLayoutPanel flowLayoutPanel1 = (FlowLayoutPanel)this.Controls[0].Controls["flowLayoutPanel1"];
@@ -120,11 +132,28 @@ namespace Sistema_Dollarcity
             // Mostrar cada item del carrito
             foreach (var item in Carrito.Items)
             {
+                // Obtener el producto original para validar stock
+                Producto producto = Datos.ObtenerProductoPorId(item.Id);
+
                 Panel panelItem = new Panel();
                 panelItem.Width = 620;
                 panelItem.Height = 90;
                 panelItem.BorderStyle = BorderStyle.FixedSingle;
-                panelItem.BackColor = Color.LightGray;
+                
+                // CAMBIO: Color del panel según estado del stock
+                if (producto != null && producto.CantidadStock == 0)
+                {
+                    panelItem.BackColor = Color.FromArgb(255, 200, 200); // Rojo claro para agotado
+                }
+                else if (producto != null && producto.CantidadStock == 1)
+                {
+                    panelItem.BackColor = Color.FromArgb(255, 230, 150); // Naranja claro para "por agotarse"
+                }
+                else
+                {
+                    panelItem.BackColor = Color.LightGray; // Gris claro para disponible
+                }
+
                 panelItem.Margin = new Padding(5);
 
                 // Nombre
@@ -158,6 +187,32 @@ namespace Sistema_Dollarcity
                 lblSubtotal.Font = new Font("Arial", 11, FontStyle.Bold);
                 lblSubtotal.ForeColor = Color.DarkGreen;
 
+                // NUEVA SECCIÓN: Label de estado de stock
+                Label lblEstadoStock = new Label();
+                lblEstadoStock.Top = 60;
+                lblEstadoStock.Left = 10;
+                lblEstadoStock.Width = 300;
+                lblEstadoStock.Font = new Font("Arial", 9, FontStyle.Regular);
+
+                if (producto != null)
+                {
+                    if (producto.CantidadStock == 0)
+                    {
+                        lblEstadoStock.Text = "❌ Producto agotado";
+                        lblEstadoStock.ForeColor = Color.Red;
+                    }
+                    else if (producto.CantidadStock == 1)
+                    {
+                        lblEstadoStock.Text = "⚠️ Este producto está por agotarse. Solo queda 1 unidad disponible.";
+                        lblEstadoStock.ForeColor = Color.FromArgb(255, 128, 0); // Naranja
+                    }
+                    else
+                    {
+                        lblEstadoStock.Text = $"✓ Stock disponible: {producto.CantidadStock} unidades";
+                        lblEstadoStock.ForeColor = Color.Green;
+                    }
+                }
+
                 // Botón Eliminar
                 Button btnEliminar = new Button();
                 btnEliminar.Text = "❌ Eliminar";
@@ -178,6 +233,7 @@ namespace Sistema_Dollarcity
                 panelItem.Controls.Add(lblPrecio);
                 panelItem.Controls.Add(lblCantidad);
                 panelItem.Controls.Add(lblSubtotal);
+                panelItem.Controls.Add(lblEstadoStock); // NUEVA LÍNEA
                 panelItem.Controls.Add(btnEliminar);
 
                 flowLayoutPanel1.Controls.Add(panelItem);
@@ -186,6 +242,9 @@ namespace Sistema_Dollarcity
             ActualizarTotal();
         }
 
+        /// <summary>
+        /// Actualiza el label del total con la suma de todos los subtotales.
+        /// </summary>
         private void ActualizarTotal()
         {
             decimal total = Carrito.ObtenerTotal();
@@ -193,12 +252,39 @@ namespace Sistema_Dollarcity
             lblTotal.Text = $"Total: ${total:F2}";
         }
 
+        /// <summary>
+        /// Maneja el evento de click del botón Comprar.
+        /// Valida stock, confirma compra y descuenta del inventario.
+        /// </summary>
         private void btnComprar_Click(object sender, EventArgs e)
         {
             if (Carrito.Items.Count == 0)
             {
-                MessageBox.Show("El carrito está vacío", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "El carrito está vacío",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
+            }
+
+            // VALIDACIÓN: Verificar que hay stock disponible para todos los items
+            foreach (var item in Carrito.Items)
+            {
+                Producto producto = Datos.ObtenerProductoPorId(item.Id);
+                if (producto == null || producto.CantidadStock < item.Cantidad)
+                {
+                    MessageBox.Show(
+                        $"No hay suficiente stock disponible para '{item.Nombre}'.\n" +
+                        $"Solicitado: {item.Cantidad} unidades\n" +
+                        $"Disponible: {(producto?.CantidadStock ?? 0)} unidades",
+                        "Stock Insuficiente",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return;
+                }
             }
 
             decimal total = Carrito.ObtenerTotal();
@@ -211,23 +297,43 @@ namespace Sistema_Dollarcity
 
             if (resultado == DialogResult.Yes)
             {
-                MessageBox.Show(
-                    $"✓ ¡Compra realizada exitosamente por ${total:F2}!",
-                    "Éxito",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                // CAMBIO: Procesar compra y descontar stock
+                if (Carrito.ProcesarCompra())
+                {
+                    MessageBox.Show(
+                        $"✓ ¡Compra realizada exitosamente por ${total:F2}!\n\n" +
+                        "El stock ha sido actualizado automáticamente.",
+                        "Éxito",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
 
-                Carrito.LimpiarCarrito();
-                MostrarCarrito();
+                    MostrarCarrito();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "❌ Error al procesar la compra. Verifique el stock disponible.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de click del botón Limpiar.
+        /// Vaciá el carrito con confirmación del usuario.
+        /// </summary>
         private void btnLimpiarCarrito_Click(object sender, EventArgs e)
         {
             if (Carrito.Items.Count == 0)
             {
-                MessageBox.Show("El carrito ya está vacío", "Información");
+                MessageBox.Show(
+                    "El carrito ya está vacío",
+                    "Información"
+                );
                 return;
             }
 

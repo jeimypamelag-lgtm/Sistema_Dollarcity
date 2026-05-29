@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace Sistema_Dollarcity
 {
+    /// <summary>
+    /// Formulario para crear o editar productos.
+    /// Ahora incluye validación y gestión de stock.
+    /// </summary>
     public partial class FrmProducto : Form
     {
         Producto productoEditar = null;
@@ -43,6 +47,12 @@ namespace Sistema_Dollarcity
             cmbCategoria.Text = producto.Categoria;
 
             chkStock.Checked = producto.Stock;
+
+            // NUEVA LÍNEA: Cargar cantidad de stock
+            if (Controls.Contains(txtCantidadStock))
+            {
+                txtCantidadStock.Text = producto.CantidadStock.ToString();
+            }
 
             nombreImagen = producto.Imagen;
 
@@ -88,7 +98,7 @@ namespace Sistema_Dollarcity
                 File.Copy(
                     abrir.FileName,
                     destino,
-                true
+                    true
                 );
             }
         }
@@ -135,6 +145,22 @@ namespace Sistema_Dollarcity
                     return;
                 }
 
+                // NUEVA VALIDACIÓN: Validar cantidad de stock
+                int cantidadStock = 0;
+                if (Controls.Contains(txtCantidadStock))
+                {
+                    if (!int.TryParse(txtCantidadStock.Text, out cantidadStock) || cantidadStock < 0)
+                    {
+                        MessageBox.Show(
+                            "Ingrese una cantidad de stock válida (número no negativo)",
+                            "Error de Validación",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                        return;
+                    }
+                }
+
                 // AGREGAR
                 if (productoEditar == null)
                 {
@@ -154,6 +180,9 @@ namespace Sistema_Dollarcity
 
                     nuevo.Imagen = nombreImagen;
 
+                    // NUEVA LÍNEA: Asignar cantidad de stock
+                    nuevo.CantidadStock = cantidadStock;
+
                     Datos.ListaProductos.Add(nuevo);
                 }
                 else
@@ -170,6 +199,9 @@ namespace Sistema_Dollarcity
                     productoEditar.Stock = chkStock.Checked;
 
                     productoEditar.Imagen = nombreImagen;
+
+                    // NUEVA LÍNEA: Actualizar cantidad de stock
+                    productoEditar.CantidadStock = cantidadStock;
                 }
 
                 MessageBox.Show(
@@ -191,10 +223,10 @@ namespace Sistema_Dollarcity
             DialogResult resultado = MessageBox.Show(
                 "¿Estás seguro de que deseas cancelar?", "Confirmar",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question );
+                MessageBoxIcon.Question);
 
-            if ( resultado == DialogResult.Yes )
-            this.Close();
+            if (resultado == DialogResult.Yes)
+                this.Close();
         }
     }
 }
