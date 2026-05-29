@@ -30,8 +30,8 @@ namespace Sistema_Dollarcity
                 return;
             }
 
-            string conexion = //"Server=.;Database=BD_Dollarcity;Trusted_Connection=True;"; //"Server=PAMELA_PORTILLO;Database=BD_Dollarcity;Integrated Security=true";
-                @"Server=DESKTOP-CC30LNJ\SQLEXPRESS;Database=BD_Dollarcity;Trusted_Connection=True;"; // - dary (a mi con esta cadena me agarra la base xd)
+            string conexion = "Server=.;Database=BD_Dollarcity;Trusted_Connection=True;"; //"Server=PAMELA_PORTILLO;Database=BD_Dollarcity;Integrated Security=true";
+                //@"Server=DESKTOP-CC30LNJ\SQLEXPRESS;Database=BD_Dollarcity;Trusted_Connection=True;"; // - dary (a mi con esta cadena me agarra la base xd)
 
             using (SqlConnection conn = new SqlConnection(conexion))
             {
